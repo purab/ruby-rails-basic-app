@@ -1,5 +1,6 @@
 class RootController < ApplicationController
     def index
+        @posts = Post.all
         render "index"
     end
 
@@ -30,6 +31,16 @@ class RootController < ApplicationController
         render json:params[:id]
     end
     def add
-        render json:params
+        @post = Post.new
+        @post.title= params[:title]
+        @post.description= params[:description]
+        @post.save
+        @response = {
+            :status => 200,
+            :message => "saved post successfully."
+        }
+        #render json: @response
+        @posts = Post.all
+        render "index"
     end
 end

@@ -16,4 +16,14 @@
 </div>
 </form>
 </div>
+<hr>
+<% @posts.each do |post| %>
+    <div class="card" style="width: 18rem;margin:0 auto">  
+    <div class="card-body">
+        <h5 class="card-title"><%= post.title %></h5>
+        <p class="card-text"><%= post.description %></p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+    </div>  
+<% end %>
 <%= render "footer" %>
