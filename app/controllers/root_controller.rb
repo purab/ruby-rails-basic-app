@@ -43,4 +43,18 @@ class RootController < ApplicationController
         @posts = Post.all
         render "index"
     end
+    def destroy
+        @post = Post.find(params[:id])
+        @post.destroy
+       # @render json: params
+        params[:id] = nil
+        flash[:notice] = "Art has been deleted"
+        redirect_to :action => :index
+    end
+
+    def search
+        @query = params[:query]
+        @posts = Post.where("posts.title LIKE ?",["%#{@query}%"])
+        render "index"
+    end
 end

@@ -9,6 +9,14 @@ Rails.application.routes.draw do
   get '/response', to: "root#api"
   get "/user/:id/:name", to: "root#user"
   post "/add", to: "root#add"
+  
+  # we need this 2 lines for our delete link_to setup
+  delete 'delete/:id' => 'root#destroy', as: 'root_delete'
+  get '/delete/:id' => 'root#destroy'
+
   #for homepage
   root "root#index"
+  get "/search", to: "root#search"
+  #resources :posts, only: [:show, :index, :new, :create, :edit, :update, :delete]
+
 end
