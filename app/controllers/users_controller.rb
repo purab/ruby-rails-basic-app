@@ -12,7 +12,9 @@ class UsersController < ApplicationController
         response = {
             :success => true
         }
-        render json:response
+        @message = "user registered successfully"
+        @success = true
+        render "new"
     end
     def destroy
     end

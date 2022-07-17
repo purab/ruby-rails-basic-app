@@ -1,13 +1,10 @@
-<h1> signup</h1>
-<% if @success %>
-<%= @message %>
-<a href="/signin">click here for login</a>
-<% end %>
-<form method="POST" action="<%= register_path %>">
+<h1> sign in</h1>
+
+<form method="POST" action="<%= login_path %>">
 <%= token_tag %>
 <label for="username">Username</label>
 <input type="email" name="username" required id="username">
 <label for="userpassword">password</label>
 <input type="password" name="userpassword" required id="userpassword">
-<input type="submit" value="signup">
+<input type="submit" value="signin">
 </form>

@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   resources :sessions
   get "signup", to: "users#new" , as: 'signup'
   post 'register', to: "users#create", as: 'register'
+  get "signin", to: "sessions#new" , as: 'signin'
+  post 'login', to: "sessions#create", as: 'login'
   #resources :posts, only: [:show, :index, :new, :create, :edit, :update, :delete]
 
 end
