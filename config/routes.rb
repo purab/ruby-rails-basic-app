@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'index', to: "root#index"
   get '/response', to: "root#api"
   get "/user/:id/:name", to: "root#user"
+  post "/add", to: "root#add"
   #for homepage
   root "root#index"
 end

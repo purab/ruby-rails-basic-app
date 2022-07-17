@@ -29,4 +29,7 @@ class RootController < ApplicationController
         #render json:params
         render json:params[:id]
     end
+    def add
+        render json:params
+    end
 end
