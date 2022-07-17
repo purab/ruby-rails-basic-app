@@ -17,6 +17,13 @@ Rails.application.routes.draw do
   #for homepage
   root "root#index"
   get "/search", to: "root#search"
+  get "/update/:id", to: "root#update"
+  post "/updateform", to: "root#updateform"
+
+  resources :users
+  resources :sessions
+  get "signup", to: "users#new" , as: 'signup'
+  post 'register', to: "users#create", as: 'register'
   #resources :posts, only: [:show, :index, :new, :create, :edit, :update, :delete]
 
 end

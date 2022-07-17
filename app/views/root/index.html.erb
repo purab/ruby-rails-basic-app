@@ -24,6 +24,7 @@
         <p class="card-text"><%= post.description %></p>
         
         <%= link_to 'Delete', "delete/#{post.id}", :method => :delete %>
+        <%= link_to 'Update', "update/#{post.id}", :method => :put %>
         
     </div>
     </div>  

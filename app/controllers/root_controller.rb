@@ -57,4 +57,20 @@ class RootController < ApplicationController
         @posts = Post.where("posts.title LIKE ?",["%#{@query}%"])
         render "index"
     end
+    def update
+        @post = Post.find(params[:id])
+        @id = @post.id
+        @title = @post.title
+        @description = @post.description        
+        render "update"
+    end
+    def updateform
+        @post = Post.find(params[:id])
+        @post.title = params[:title]
+        @post.description = params[:description]
+        @post.save
+        @posts = Post.all
+        render "index"
+        #render json:params
+    end
 end
